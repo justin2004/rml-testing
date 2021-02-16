@@ -1,0 +1,130 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://example.org/rules/> .
+@prefix ex: <http://example.org/example/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# this approach assumes:
+#    -  the .json was preprocessed so that each object has a unique "_id" key.
+#    - that you want to error on the side of generating a blank node (only referencing a URI if you have enough individuating keys)
+
+# it uses structured values (https://www.w3.org/TR/rdf-schema/#ch_value) 
+
+# NOTE i have not taken the time to pick proper predicates
+
+# TODO how can i autoindent .ttl?
+
+:Chars a rr:triplesMap ;
+rml:logicalSource [
+    rml:source "characters.pp.json";
+rml:referenceFormulation ql:JSONPath;
+rml:iterator "$.characters[*]" ] ;
+  rr:subjectMap [
+   rr:template "chars-{_id}";
+   rr:termType rr:BlankNode ;
+] ;
+rr:predicateObjectMap [
+    rr:predicate rdf:type;
+    rr:objectMap [
+rr:constant schema:Person;
+];
+];
+rr:predicateObjectMap [
+    rr:predicate schema:name;
+rr:objectMap [ rml:reference "firstname" ]
+];
+rr:predicateObjectMap [
+    rr:predicate schema:has;
+rr:objectMap [ rr:template "char-{_id}-pos" ;
+               rr:termType rr:BlankNode ]
+];
+rr:predicateObjectMap [
+    rr:predicate owl:sameAs;
+rr:objectMap [ rr:template "http://www.wikidata.org/entity/{wikidata_item}" ;
+               rr:termType rr:IRI ]
+].
+
+###
+:TriplesMapItems a rr:TriplesMap ;
+rml:logicalSource [
+    rml:source "characters.pp.json";
+    rml:referenceFormulation ql:JSONPath;
+    rml:iterator "$.characters[*]" ] ;
+rr:subjectMap [
+    rr:template "char-{_id}-pos"; 
+    rr:termType rr:BlankNode ;
+];
+rr:predicateObjectMap [
+    rr:predicate rdf:type;
+rr:objectMap [
+    rr:constant schema:Collection
+] 
+];
+ rr:predicateObjectMap [
+    rr:predicate schema:contains;
+rr:objectMap [ rr:template "item-{items[*]._id}" ;
+               rr:termType rr:BlankNode ]
+].
+
+###
+
+:ItemContent a rr:TriplesMap ;
+  rml:logicalSource [
+  rml:source "characters.pp.json" ;
+  rml:referenceFormulation ql:JSONPath ;
+  rml:iterator "$.characters[*].items[*]"  ;
+] ;
+rr:subjectMap [
+  rr:template "item-{_id}" ;
+  rr:termType rr:BlankNode ; 
+] ;
+rr:predicateObjectMap [
+  rr:predicate schema:name ;
+  rr:objectMap [
+    rml:reference "name" ;
+];
+];
+rr:predicateObjectMap [
+  rr:predicate schema:weight ;
+  rr:objectMap [
+    rr:template "item-{_id}-weight" ;
+#  TODO assumes a single weight?
+    rr:termType rr:BlankNode ;
+];
+];
+rr:predicateObjectMap [
+  rr:predicate rdf:type ;
+  rr:objectMap [
+    rr:template "http://www.wikidata.org/entity/{wikidata_item}" ;
+    rr:termType rr:IRI ;
+];
+].
+####
+
+:ItemWeights a rr:TriplesMap ;
+  rml:logicalSource [
+  rml:source "characters.pp.json" ;
+  rml:referenceFormulation ql:JSONPath ;
+  rml:iterator "$.characters[*].items[*]"  ;
+] ;
+rr:subjectMap [
+  rr:template "item-{_id}-weight" ;
+  rr:termType rr:BlankNode ; 
+] ;
+rr:predicateObjectMap [
+  rr:predicate rdf:value ;
+  rr:objectMap [
+    rml:reference "weight" ;
+    rr:datatype xsd:int ;
+];
+];
+rr:predicateObjectMap [
+  rr:predicate :units ;
+  rr:objectMap [
+    rr:constant :ounces ;
+];
+].

@@ -1,0 +1,60 @@
+{
+  "characters": [
+    {
+      "firstname": "Ash",
+      "lastname": "Ketchum",
+      "items": [
+        {
+          "name_variation": "bowl of soup",
+          "weight": 1000,
+          "_id": 1
+        },
+        {
+          "name": "spoon",
+          "alias": "Ash's spoon",
+          "_id": 2
+        },
+        {
+          "name": "gloves",
+          "weight": 340,
+          "wikidata_item": "Q169031",
+          "_id": 3
+        },
+        {
+          "name": "sword",
+          "weight": 44400,
+          "_id": 4
+        }
+      ],
+      "_id": 5
+    },
+    {
+      "firstname": "Misty",
+      "lastname": "Mountain",
+      "items": [
+        {
+          "name": "gloves",
+          "weight": 340,
+          "_id": 6
+        },
+        {
+          "name_variation": "mittens",
+          "_id": 7
+        }
+      ],
+      "_id": 8
+    },
+    {
+      "firstname": "Misty",
+      "wikidata_item": "Q1057356",
+      "items": [
+        {
+          "name": "hair tie",
+          "_id": 9
+        }
+      ],
+      "_id": 10
+    }
+  ],
+  "_id": 11
+}

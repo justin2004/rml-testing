@@ -1,0 +1,58 @@
+[ a                         <http://schema.org/Person> ;
+  <http://schema.org/has>   [ a                             <http://schema.org/Collection> ;
+                              <http://schema.org/contains>  [ <http://schema.org/name>    "hair tie" ;
+                                                              <http://schema.org/weight>  [ <http://example.org/rules/units>
+                                                                                <http://example.org/rules/ounces> ]
+                                                            ]
+                            ] ;
+  <http://schema.org/name>  "Misty" ;
+  <http://www.w3.org/2002/07/owl#sameAs>
+          <http://www.wikidata.org/entity/Q1057356>
+] .
+
+[ a                         <http://schema.org/Person> ;
+  <http://schema.org/has>   [ a                             <http://schema.org/Collection> ;
+                              <http://schema.org/contains>  [ <http://schema.org/name>    "sword" ;
+                                                              <http://schema.org/weight>  [ <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                                                                                                    "44400"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                                                                                            <http://example.org/rules/units>
+                                                                                                    <http://example.org/rules/ounces>
+                                                                                          ]
+                                                            ] ;
+                              <http://schema.org/contains>  [ a                           <http://www.wikidata.org/entity/Q169031> ;
+                                                              <http://schema.org/name>    "gloves" ;
+                                                              <http://schema.org/weight>  [ <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                                                                                                    "340"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                                                                                            <http://example.org/rules/units>
+                                                                                                    <http://example.org/rules/ounces>
+                                                                                          ]
+                                                            ] ;
+                              <http://schema.org/contains>  [ <http://schema.org/name>    "spoon" ;
+                                                              <http://schema.org/weight>  [ <http://example.org/rules/units>
+                                                                                <http://example.org/rules/ounces> ]
+                                                            ] ;
+                              <http://schema.org/contains>  [ <http://schema.org/weight>  [ <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                                                                                                    "1000"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                                                                                            <http://example.org/rules/units>
+                                                                                                    <http://example.org/rules/ounces>
+                                                                                          ]
+                                                            ]
+                            ] ;
+  <http://schema.org/name>  "Ash"
+] .
+
+[ a                         <http://schema.org/Person> ;
+  <http://schema.org/has>   [ a                             <http://schema.org/Collection> ;
+                              <http://schema.org/contains>  [ <http://schema.org/weight>  [ <http://example.org/rules/units>
+                                                                                <http://example.org/rules/ounces> ]
+                                                            ] ;
+                              <http://schema.org/contains>  [ <http://schema.org/name>    "gloves" ;
+                                                              <http://schema.org/weight>  [ <http://www.w3.org/1999/02/22-rdf-syntax-ns#value>
+                                                                                                    "340"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                                                                                            <http://example.org/rules/units>
+                                                                                                    <http://example.org/rules/ounces>
+                                                                                          ]
+                                                            ]
+                            ] ;
+  <http://schema.org/name>  "Misty"
+] .
