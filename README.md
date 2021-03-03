@@ -9,6 +9,8 @@ this repo tries to blend both approaches. but it does require a preprocessing st
 
 what i like about this approach:
 - the preprocessing is generic (you don't have to adapt it for each new input source)
+    - it adds an `"_id"` key to each object in the json but notice that the resultant triples do not use those IDs in URIs
+        - those IDs are just to make up for rmlmapper's (or RML's) current shortcomings during the mapping phase
 - see the other notes at the top of mapping.rml.ttl
 
 
