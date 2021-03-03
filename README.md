@@ -14,8 +14,12 @@ what i like about this approach:
 
 ## how
 
+## prepare
+- have docker and make installed
+- `make`
+
 ### first preprocess (if necessary)
-cat characters.json | docker run --rm -i rml-testing sbcl --script /root/addid.lisp > characters.pp.json
+cat characters.json | docker run --rm -i justin2004/rml-testing sbcl --script /root/addid.lisp > characters.pp.json
 
 ### then run the rml mapper
-docker run --rm -i -v `pwd`:/mnt rml-testing java -jar /root/rmlmapper-java/target/rmlmapper-4.9.1-r326.jar  -m mapping.rml.ttl > characters.nq
+docker run --rm -i -v `pwd`:/mnt justin2004/rml-testing java -jar /root/rmlmapper-java/target/rmlmapper-4.9.1-r326.jar  -m mapping.rml.ttl > characters.nq
