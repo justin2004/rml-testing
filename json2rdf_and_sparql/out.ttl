@@ -9,9 +9,7 @@
 [ a              sch:Person ;
   sch:givenName  "Misty" ;
   sch:owns       [ a            sch:Collection ;
-                   sch:hasPart  [ sch:name    "hair tie" ;
-                                  sch:weight  [ ex:units  ex:ounces ]
-                                ]
+                   sch:hasPart  [ sch:name  "hair tie" ]
                  ] ;
   owl:sameAs     wd:Q1057356
 ] .
@@ -20,21 +18,19 @@
   sch:familyName  "Ketchum" ;
   sch:givenName   "Ash" ;
   sch:owns        [ a            sch:Collection ;
+                    sch:hasPart  [ sch:weight  [ rdf:value  "30"^^xsd:int ;
+                                                 ex:units   ex:ounces
+                                               ]
+                                 ] ;
                     sch:hasPart  [ sch:name    "sword" ;
                                    sch:weight  [ rdf:value  "400"^^xsd:int ;
                                                  ex:units   ex:ounces
                                                ]
                                  ] ;
+                    sch:hasPart  [ sch:name  "spoon" ] ;
                     sch:hasPart  [ a           wd:Q169031 ;
                                    sch:name    "gloves" ;
                                    sch:weight  [ rdf:value  "20"^^xsd:int ;
-                                                 ex:units   ex:ounces
-                                               ]
-                                 ] ;
-                    sch:hasPart  [ sch:name    "spoon" ;
-                                   sch:weight  [ ex:units  ex:ounces ]
-                                 ] ;
-                    sch:hasPart  [ sch:weight  [ rdf:value  "30"^^xsd:int ;
                                                  ex:units   ex:ounces
                                                ]
                                  ]
@@ -45,8 +41,7 @@
   sch:familyName  "Mountain" ;
   sch:givenName   "Misty" ;
   sch:owns        [ a            sch:Collection ;
-                    sch:hasPart  [ sch:weight  [ ex:units  ex:ounces ]
-                                 ] ;
+                    sch:hasPart  []  ;
                     sch:hasPart  [ sch:name    "gloves" ;
                                    sch:weight  [ rdf:value  "16"^^xsd:int ;
                                                  ex:units   ex:ounces

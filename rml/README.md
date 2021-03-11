@@ -1,4 +1,18 @@
 # rml usage with generic preprocessing
+
+## how
+
+- do json2rdf_and_sparql first then come back here
+
+## prepare
+- have docker and make installed
+- `make`
+
+then find `out.ttl`
+
+
+## notes
+
 "The case without a single identifier field for nested items in the child array is currently not possible with RML and JSONPath."
 https://github.com/RMLio/rmlmapper-java/issues/93#issuecomment-771695761
 
@@ -14,14 +28,3 @@ what i like about this approach:
 - see the other notes at the top of mapping.rml.ttl
 
 
-## how
-
-## prepare
-- have docker and make installed
-- `make`
-
-### first preprocess (if necessary)
-`cat characters.json | docker run --rm -i justin2004/rml-testing sbcl --script /root/addid.lisp > characters.pp.json`
-
-### then run the rml mapper
-`docker run --rm -i -v `pwd`:/mnt justin2004/rml-testing java -jar /root/rmlmapper-java/target/rmlmapper-4.9.1-r326.jar  -m mapping.rml.ttl > characters.nq`
