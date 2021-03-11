@@ -9,7 +9,7 @@ vs
 [JSON2RDF](https://github.com/AtomGraph/JSON2RDF) + [SPARQL](https://en.wikipedia.org/wiki/SPARQL) construct
 
 ### goals
-this is not a performance test. this an ease and capabilities of mapping exercise.
+this is not a performance test. this an ease and capabilities of mapping comparison.
 
 
 ### input
