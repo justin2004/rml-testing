@@ -21,7 +21,8 @@ see
 - `json2rdf_and_sparql/out.ttl`
 
 ### notes
-RML required a preprocessing stage and quite a big mapping file (though the mapping is expressed in triples (which is nice)).
-JSON2RDF + SPARQL was much easier than i expected it to be and it did not make superflous triples.
+RML [required](https://github.com/RMLio/rmlmapper-java/issues/93#issuecomment-771695761) a preprocessing stage and quite a big mapping file (`rml/mapping.rml.ttl`) (though the mapping is expressed in triples (which is nice)).
+
+JSON2RDF + SPARQL was much easier than i expected it to be and it did not make superflous triples like RML did.
 
 
