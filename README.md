@@ -11,3 +11,14 @@ vs
 
 ### input
 the input json is `characters.json`
+
+### output
+see 
+- `rml/out.ttl`
+- `json2rdf_and_sparql/out.ttl`
+
+### notes
+RML required a preprocessing stage and quite a big mapping file (though the mapping is expressed in triples (which is nice)).
+JSON2RDF + SPARQL was much easier than i expected it to be and it did not make superflous triples.
+
+
