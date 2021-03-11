@@ -1,0 +1,11 @@
+prefix wd: <http://www.wikidata.org/entity/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+prefix tmp: <http://tmp.com/#>
+prefix ex: <http://example.com/>
+prefix sch: <http://schema.org/>
+prefix owl: <http://www.w3.org/2002/07/owl#>
+prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+construct { ?s ?p ?o } where {
+?s ?p ?o
+}
