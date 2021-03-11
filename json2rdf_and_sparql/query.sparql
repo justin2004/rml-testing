@@ -1,11 +1,12 @@
+prefix wd: <http://www.wikidata.org/entity/>
+prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 prefix tmp: <http://tmp.com/#>
-prefix ex: <http://example.com/#>
+prefix ex: <http://example.com/>
 prefix sch: <http://schema.org/>
-prefix owl: <http://www.w3.org/2002/07/owl>
+prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 construct {?char a sch:Person .
-           ?char sch:has ?o .
            ?char sch:givenName ?fname .
            ?char sch:familyName ?lname .
            ?char owl:sameAs ?sameURI .
@@ -14,25 +15,23 @@ construct {?char a sch:Person .
            ?collection sch:hasPart ?item .
            ?item sch:name ?item_name .
            ?item sch:weight ?item_weight_structure .
+           ?item rdf:type ?typeURI .
            ?item_weight_structure rdf:value ?item_weight .
            ?item_weight_structure ex:units ex:ounces .
- } where{
+} where {
 { ?top_array tmp:characters ?char .
   bind(bnode() as ?collection) .}  # make a collection for each character
-optional {?char tmp:firstname ?fname .}
-optional {?char tmp:lastname ?lname .}
-optional {?char tmp:wikidata_item ?same .
-          bind(uri(concat("http://wikidata.org/entity/",?same)) as ?sameURI)}
-optional {?char tmp:items ?item .
- optional {?item tmp:name ?item_name .}
- optional {?item tmp:weight ?item_weight .
-           bind(bnode() as ?item_weight_structure) # make a weight structure for each weight
-          }
-  .} 
+  optional {?char tmp:firstname ?fname .}
+  optional {?char tmp:lastname ?lname .}
+  optional {?char tmp:wikidata_item ?same .
+            bind(uri(concat("http://www.wikidata.org/entity/",?same)) as ?sameURI)}
+  optional {?char tmp:items ?item .
+            optional {?item tmp:name ?item_name .}
+            optional {?item tmp:wikidata_item ?item_type_q .
+                      bind(uri(concat("http://www.wikidata.org/entity/",?item_type_q)) as ?typeURI)}
+            optional {?item tmp:weight ?item_weight .
+                      bind(bnode() as ?item_weight_structure) # make a weight structure for each weight
+                     }}
 }
-
-# notes https://www.w3.org/TR/sparql11-query/#templatesWithBNodes does not work if you want the same blank node to used for multiple query solutions
-#   so i needed to preprocess -- NOPE!
-
 
 # major thanks to  https://stackoverflow.com/questions/46155991/produce-the-same-blank-node-in-construct-across-multiple-solutions

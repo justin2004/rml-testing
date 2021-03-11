@@ -3,17 +3,17 @@
     {
       "firstname": "Ash",
       "lastname":"Ketchum",
-      "items":[ {"name_variation":"bowl of soup","weight":1000},
+      "items":[ {"name_variation":"bowl of soup","weight":30},
                 {"name":"spoon","alias":"Ash's spoon"},
-                {"name":"gloves", "weight":340, 
+                {"name":"gloves", "weight":20, 
                  "wikidata_item":"Q169031"},
-                {"name":"sword", "weight":44400}
+                {"name":"sword", "weight":400}
       ]
     },
     {
       "firstname": "Misty",
       "lastname":"Mountain",
-      "items":[ {"name":"gloves", "weight":340},
+      "items":[ {"name":"gloves", "weight":16},
                 {"name_variation":"mittens"}
       ]
     },

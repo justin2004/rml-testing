@@ -3,18 +3,16 @@
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix : <http://example.org/rules/> .
-@prefix ex: <http://example.org/example/> .
+@prefix ex: <http://example.com/> .
 @prefix schema: <http://schema.org/> .
 @prefix dbo: <http://dbpedia.org/ontology/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 # this approach assumes:
-#    -  the .json was preprocessed so that each object has a unique "_id" key.
+#    - the .json was preprocessed so that each object has a unique "_id" key.
 #    - that you want to error on the side of generating a blank node (only referencing a URI if you have enough individuating keys)
 
 # it uses structured values (https://www.w3.org/TR/rdf-schema/#ch_value) 
-
-# NOTE i have not taken the time to pick proper predicates
 
 # TODO how can i autoindent .ttl?
 
@@ -34,11 +32,15 @@ rr:constant schema:Person;
 ];
 ];
 rr:predicateObjectMap [
-    rr:predicate schema:name;
+    rr:predicate schema:givenName;
 rr:objectMap [ rml:reference "firstname" ]
 ];
 rr:predicateObjectMap [
-    rr:predicate schema:has;
+    rr:predicate schema:familyName;
+rr:objectMap [ rml:reference "lastname" ]
+];
+rr:predicateObjectMap [
+    rr:predicate schema:owns;
 rr:objectMap [ rr:template "char-{_id}-pos" ;
                rr:termType rr:BlankNode ]
 ];
@@ -65,7 +67,7 @@ rr:objectMap [
 ] 
 ];
  rr:predicateObjectMap [
-    rr:predicate schema:contains;
+    rr:predicate schema:hasPart;
 rr:objectMap [ rr:template "item-{items[*]._id}" ;
                rr:termType rr:BlankNode ]
 ].
@@ -123,8 +125,8 @@ rr:predicateObjectMap [
 ];
 ];
 rr:predicateObjectMap [
-  rr:predicate :units ;
+  rr:predicate ex:units ;
   rr:objectMap [
-    rr:constant :ounces ;
+    rr:constant ex:ounces ;
 ];
 ].
