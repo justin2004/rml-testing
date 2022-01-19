@@ -1,0 +1,33 @@
+[ <http://tmp.com/#characters>  [ <http://tmp.com/#firstname>  "Misty" ;
+                                  <http://tmp.com/#items>      [ <http://tmp.com/#name>
+                                                    "hair tie" ] ;
+                                  <http://tmp.com/#wikidata_item>
+                                          "Q1057356"
+                                ] ;
+  <http://tmp.com/#characters>  [ <http://tmp.com/#firstname>  "Misty" ;
+                                  <http://tmp.com/#items>      [ <http://tmp.com/#name_variation>
+                                                    "mittens" ] ;
+                                  <http://tmp.com/#items>      [ <http://tmp.com/#name>    "gloves" ;
+                                                                 <http://tmp.com/#weight>  "16"^^<http://www.w3.org/2001/XMLSchema#int>
+                                                               ] ;
+                                  <http://tmp.com/#lastname>   "Mountain"
+                                ] ;
+  <http://tmp.com/#characters>  [ <http://tmp.com/#firstname>  "Ash" ;
+                                  <http://tmp.com/#items>      [ <http://tmp.com/#name>    "sword" ;
+                                                                 <http://tmp.com/#weight>  "400"^^<http://www.w3.org/2001/XMLSchema#int>
+                                                               ] ;
+                                  <http://tmp.com/#items>      [ <http://tmp.com/#name>    "gloves" ;
+                                                                 <http://tmp.com/#weight>  "20"^^<http://www.w3.org/2001/XMLSchema#int> ;
+                                                                 <http://tmp.com/#wikidata_item>
+                                                                         "Q169031"
+                                                               ] ;
+                                  <http://tmp.com/#items>      [ <http://tmp.com/#alias>  "Ash's spoon" ;
+                                                                 <http://tmp.com/#name>   "spoon"
+                                                               ] ;
+                                  <http://tmp.com/#items>      [ <http://tmp.com/#name_variation>
+                                                                         "bowl of soup" ;
+                                                                 <http://tmp.com/#weight>  "30"^^<http://www.w3.org/2001/XMLSchema#int>
+                                                               ] ;
+                                  <http://tmp.com/#lastname>   "Ketchum"
+                                ]
+] .
